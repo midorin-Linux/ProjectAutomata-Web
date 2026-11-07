@@ -15,7 +15,7 @@ import {
 import * as m from "motion/react-m"
 import { Dialog } from "radix-ui"
 import { useState } from "react"
-import { Link, NavLink, Outlet } from "react-router"
+import { Link, NavLink, Outlet, useMatch } from "react-router"
 
 const navigationItems = [
   ["/about", "About"],
@@ -27,6 +27,7 @@ const navigationItems = [
 
 export function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const isAboutPage = useMatch("/about") !== null
   const shouldReduceMotion = useReducedMotion()
   const closedX = shouldReduceMotion ? 0 : "100%"
   const duration = shouldReduceMotion ? 0 : 0.2
@@ -139,7 +140,14 @@ export function App() {
       </main>
 
       <div className="flex flex-1 justify-center border-b border-primary px-3 sm:px-8">
-        <div className="w-full max-w-7xl border-x border-primary"></div>
+        <div
+          aria-hidden="true"
+          className="grid w-full max-w-7xl border-x border-primary md:grid-cols-[1fr_3fr]"
+        >
+          {isAboutPage && (
+            <div className="hidden border-l border-primary md:col-start-2 md:block" />
+          )}
+        </div>
       </div>
 
       {/*<div className="flex justify-center border-b border-primary px-8">*/}
