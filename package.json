@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
+    "test": "node --input-type=module -e \"import { createServer } from 'vite'; const server = await createServer({ mode: 'test', server: { middlewareMode: true } }); try { await server.ssrLoadModule('/src/components/error-page.tsx'); } finally { await server.close(); }\"",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",

@@ -26,7 +26,10 @@ export function App() {
       <div className="flex w-full justify-center border-b border-primary px-8">
         <div className="flex w-full max-w-7xl items-center justify-between border-x border-primary px-8 py-4">
           <div>
-            <a className="font-['Bitter',serif] text-2xl whitespace-nowrap" href="/">
+            <a
+              className="font-['Bitter',serif] text-2xl whitespace-nowrap"
+              href="/"
+            >
               Project Automata
             </a>
           </div>
