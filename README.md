@@ -13,6 +13,7 @@ React Router の `BrowserRouter` を使用し、`/` はホーム、`/about` はA
 ヘッダーの現在のページは `bg-muted` と上向きの三角形で示し、`aria-current="page"` を付けます。ホームに対応するナビゲーション項目はありません。
 ルート定義は `src/main.tsx` にあります。
 HTMLタイトルは各ページの `<title>` をReact 19がheadへ配置し、`Project Automata | ページ名` と表示します。ホームは `Home`、エラー画面はステータス番号です。
+AboutのSNSリンク先は `src/pages/about.tsx` の `MidorinSocialIcons` 内にある各 `<a>` の `href` で指定します。現在は各サービスのトップページです。
 
 ## エラー表示
 
