@@ -12,6 +12,7 @@ React Router の `BrowserRouter` を使用し、`/` はホーム、`/about` はA
 ヘッダーの各メニューとホームの「About us」から遷移でき、ロゴからホームへ戻れます。
 ヘッダーの現在のページは `bg-muted` と上向きの三角形で示し、`aria-current="page"` を付けます。ホームに対応するナビゲーション項目はありません。
 ルート定義は `src/main.tsx` にあります。
+HTMLタイトルは各ページの `<title>` をReact 19がheadへ配置し、`Project Automata | ページ名` と表示します。ホームは `Home`、エラー画面はステータス番号です。
 
 ## エラー表示
 

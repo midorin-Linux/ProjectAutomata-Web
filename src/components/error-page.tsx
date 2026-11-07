@@ -27,6 +27,7 @@ export function ErrorPage({ status }: { status: number }) {
 
   return (
     <main className="flex min-h-svh flex-col items-center justify-center gap-6 px-6 text-center">
+      <title>{`Project Automata | ${status}`}</title>
       <h1 className="text-5xl font-semibold">{status}</h1>
       <p role="alert">{message}</p>
       <a href="/" className="underline underline-offset-4">
