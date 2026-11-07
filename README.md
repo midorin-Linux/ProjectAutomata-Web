@@ -30,7 +30,21 @@ AboutのSNSリンク先は `src/pages/about.tsx` の `MidorinSocialIcons` 内に
 イベントハンドラー・非同期処理のエラーやAPIの失敗レスポンスは、自動では捕捉しません。呼び出し側で処理し、必要に応じて `ErrorPage` にステータスを渡してください。
 画面・ErrorBoundary・テストは `src/components/error-page.tsx` に集約しています。`npm test` でテストモードの検証を実行します。
 
-開発・プレビューは SPA フォールバックを使用します。本番でも未知のページパスにアプリのHTMLを配信する設定が必要です。
-このクライアント実装はHTTPステータスを変更しないため、エラー画面でもHTMLの応答は通常200です。
-実際の404・500ステータスが必要な場合は、サーバーで対応するステータスとアプリのHTMLを返す連携が必要です。
+開発・プレビューは SPA フォールバックを使用します。`pnpm build` はアプリのHTMLを `dist/404.html` にも出力し、GitHub Pagesでのページ直接アクセス・再読み込みに対応します。
+GitHub Pagesでは `/about` などへの直接アクセス時もHTTPステータスは404ですが、React Routerが該当ページを表示します。既存のURL形式は維持し、ハッシュ形式には変更しません。
+画面内の404・500表示はHTTPステータスを変更しません。任意のHTTPステータスやSPAの書き換えが必要な場合は、それに対応する配信サーバーが必要です。
 サーバー停止やJavaScriptの読み込み失敗は、この画面では処理できません。
+
+## CI/CD（GitHub Pages）
+
+`.github/workflows/pages.yml` で Node.js 24・pnpm 12.16.1 を使用します。ActionsはコミットSHAで固定しています。
+
+- `master` へのPull Request：`pnpm install --frozen-lockfile` → `pnpm lint` → `pnpm test` → `pnpm build` を実行します。デプロイはしません。
+- `master` へのpush：同じCIが成功した後、`dist` をGitHub Pagesへデプロイします。
+- Actions画面からの手動実行：選択したブランチでCIを実行し、`master` の場合だけデプロイします。
+
+公開先は既存のカスタムドメイン `https://www.suwako.me/` です。Viteの `base` は既定の `/` を使用します。GitHub側のPages設定は変更せず、追加のSecretやPATは不要です。
+デプロイジョブだけに `pages: write`・`id-token: write` を付与し、`github-pages` 環境へ公開します。`master` の実行は直列化し、進行中のデプロイはキャンセルしません。
+
+`.github/dependabot.yml` は npm/pnpm の依存関係と GitHub Actions の更新を週1回確認し、既定ブランチ（`master`）への更新PRを作成します。ActionsのSHA固定も更新対象です。
+更新PRは既存のCIで検証し、マージ後にPagesへデプロイします。自動マージやPRからのデプロイは追加していません。
