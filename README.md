@@ -15,7 +15,8 @@ faviconは `public/favicon.svg` のLucide Settings（歯車）です。OSのカ�
 ## ページとルーティング
 
 React Router の `BrowserRouter` を使用し、`/` はホーム、`/about` はAboutページを表示します。
-`/news`・`/research`・`/production`・`/contact` はAboutと同じ2カラムの仮ページです。本文は `src/pages/placeholder.tsx` を共用し、準備中のメッセージを表示します。
+`/news`・`/research`・`/contact` はAboutと同じ2カラムの仮ページです。本文は `src/pages/placeholder.tsx` を共用し、準備中のメッセージを表示します。
+`/production` は `src/pages/production.tsx` の専用仮ページです。紹介文とProjectsの公開準備中メッセージを表示し、768px未満では1カラムに切り替えます。制作実績や外部リンクはまだ掲載していません。
 ヘッダーの各メニューとホームの「About us」から遷移でき、ロゴからホームへ戻れます。
 現在のページは `bg-muted` と `aria-current="page"` で示し、デスクトップのヘッダーでは上向きの三角形も表示します。ホバー・フォーカス時は明暗テーマ共通で背景 `primary`・文字色 `primary-foreground` を使用します。ホームに対応するナビゲーション項目はありません。
 ルート定義は `src/main.tsx` にあります。

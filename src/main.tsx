@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider.tsx"
 import { ErrorBoundary, ErrorPage } from "@/components/error-page"
 import { Home } from "@/pages/home"
 import { About } from "@/pages/about"
+import { Production } from "@/pages/production"
 import { PlaceholderPage } from "@/pages/placeholder"
 
 createRoot(document.getElementById("root")!).render(
@@ -24,10 +25,7 @@ createRoot(document.getElementById("root")!).render(
                 path="research"
                 element={<PlaceholderPage title="Research" />}
               />
-              <Route
-                path="production"
-                element={<PlaceholderPage title="Production" />}
-              />
+              <Route path="production" element={<Production />} />
               <Route
                 path="contact"
                 element={<PlaceholderPage title="Contact us" />}
