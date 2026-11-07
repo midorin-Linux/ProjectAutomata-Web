@@ -4,14 +4,16 @@ import { Button } from "@/components/ui/button"
 
 export function Home() {
   return (
-    <div className="flex justify-center border-b border-primary px-8">
+    <div className="flex justify-center border-b border-primary px-3 sm:px-8">
       <title>Project Automata | Home</title>
       <div className="grid w-full max-w-7xl grid-cols-1 gap-6 border-x border-primary md:grid-cols-[3fr_2fr]">
-        <div className="min-w-0 px-6 py-20">
+        <div className="min-w-0 px-4 py-12 sm:px-6 md:py-20">
           <h1 className="font-['Bitter',serif]">
-            <span className="text-8xl whitespace-nowrap">Intelligence</span>
+            <span className="text-[clamp(2.5rem,7vw,6rem)] leading-none whitespace-nowrap">
+              Intelligence
+            </span>
             <br />
-            <span className="text-5xl whitespace-nowrap">
+            <span className="text-[clamp(1.25rem,3.5vw,3rem)] leading-none whitespace-nowrap">
               With No Boundaries
             </span>
           </h1>
@@ -26,7 +28,7 @@ export function Home() {
             </Link>
           </Button>
         </div>
-        <div className="min-w-0 border-l border-primary"></div>
+        <div className="hidden min-w-0 border-l border-primary md:block"></div>
       </div>
     </div>
   )
