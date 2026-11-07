@@ -30,7 +30,7 @@ export function App() {
                   <NavigationMenuItem key={to}>
                     <NavigationMenuLink
                       asChild
-                      className="relative after:absolute after:top-full after:left-1/2 after:mt-1 after:hidden after:-translate-x-1/2 after:border-x-4 after:border-b-4 after:border-x-transparent after:border-b-primary aria-[current=page]:bg-muted aria-[current=page]:after:block"
+                      className="relative hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground after:absolute after:top-full after:left-1/2 after:mt-1 after:hidden after:-translate-x-1/2 after:border-x-4 after:border-b-4 after:border-x-transparent after:border-b-primary aria-[current=page]:bg-muted aria-[current=page]:after:block aria-[current=page]:hover:bg-primary aria-[current=page]:focus:bg-primary"
                     >
                       <NavLink to={to} end>
                         {label}

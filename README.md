@@ -12,10 +12,10 @@ faviconは `public/favicon.svg` のLucide Settings（歯車）です。OSのカ�
 React Router の `BrowserRouter` を使用し、`/` はホーム、`/about` はAboutページを表示します。
 `/news`・`/research`・`/production`・`/contact` はAboutと同じ2カラムの仮ページです。本文は `src/pages/placeholder.tsx` を共用し、準備中のメッセージを表示します。
 ヘッダーの各メニューとホームの「About us」から遷移でき、ロゴからホームへ戻れます。
-ヘッダーの現在のページは `bg-muted` と上向きの三角形で示し、`aria-current="page"` を付けます。ホームに対応するナビゲーション項目はありません。
+ヘッダーの現在のページは `bg-muted` と上向きの三角形で示し、`aria-current="page"` を付けます。ホバー・フォーカス時は明暗テーマ共通で背景 `primary`・文字色 `primary-foreground` を使用します。ホームに対応するナビゲーション項目はありません。
 ルート定義は `src/main.tsx` にあります。
 HTMLタイトルは各ページの `<title>` をReact 19がheadへ配置し、`Project Automata | ページ名` と表示します。ホームは `Home`、エラー画面はステータス番号です。
-AboutのSNSリンク先は `src/pages/about.tsx` の `MidorinSocialIcons` 内にある各 `<a>` の `href` で指定します。現在は各サービスのトップページです。
+AboutのSNSリンク先は `src/pages/about.tsx` の `MidorinSocialIcons` 内にある各 `<a>` の `href` で指定します。SNS・メールリンクのホバーとキーボードフォーカスには、明暗テーマに対応する背景 `primary`・前景 `primary-foreground` を使用し、キーボードフォーカスには枠を表示します。
 
 ## エラー表示
 
