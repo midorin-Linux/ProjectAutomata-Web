@@ -21,8 +21,8 @@ export function About() {
         </div>
       </div>
       <div className="flex justify-center border-primary px-8">
-        <div className="grid w-full max-w-7xl grid-cols-1 gap-6 border-x border-primary md:grid-cols-[1fr_3fr]">
-          <div className="min-w-0 p-4">
+        <div className="grid w-full max-w-7xl grid-cols-1 gap-y-6 border-x border-primary md:grid-cols-[1fr_3fr]">
+          <div className="min-w-0 bg-[#f5f2e9] px-4 py-6">
             <img
               src={midorinAvatar}
               alt="midorin's avatar"
