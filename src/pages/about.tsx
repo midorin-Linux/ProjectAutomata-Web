@@ -60,6 +60,14 @@ export function About() {
               >
                 moriya@suwako.me
               </a>
+              <br />
+              Personal Website:{" "}
+              <a
+                href="https://www.wayokan.com/"
+                className="underline underline-offset-4 transition-colors hover:bg-primary hover:text-primary-foreground hover:no-underline focus-visible:bg-primary focus-visible:text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring motion-reduce:transition-none"
+              >
+                https://www.wayokan.com/
+              </a>
             </p>
           </div>
         </div>
