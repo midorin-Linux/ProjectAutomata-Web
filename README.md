@@ -5,6 +5,8 @@
 
 Button の高さは `size` で指定します。`py-*` に大きい値を指定すると、その余白が高さの下限になります。
 
+faviconは `public/favicon.svg` のLucide Settings（歯車）です。OSのカラースキームに合わせて黒・白を切り替えます。
+
 ## ページとルーティング
 
 React Router の `BrowserRouter` を使用し、`/` はホーム、`/about` はAboutページを表示します。

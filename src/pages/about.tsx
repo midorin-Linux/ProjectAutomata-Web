@@ -48,7 +48,7 @@ export function About() {
             <p className="mt-4">
               Midorin is a proactive and collaborative leader, always seeking
               opportunities to contribute to the advancement of AI. He is
-              committed to open-source contributions and continuous learning,
+              committed to open-source contributions and continuous learning.
             </p>
             <p className="mt-4">
               Email:{" "}
