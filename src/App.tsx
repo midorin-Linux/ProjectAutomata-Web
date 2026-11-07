@@ -57,8 +57,8 @@ export function App() {
         <div className="flex w-full max-w-7xl items-center justify-between border-x border-primary">
           <section id="hero" className="w-full">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-[3fr_2fr]">
-              <div className="min-w-0 px-4 py-8">
-                <div className="mt-12 flex flex-col items-start justify-start">
+              <div className="min-w-0 px-6 py-20">
+                <div className="flex flex-col items-start justify-start">
                   <h1 className="font-['Bitter',serif]">
                     <span className="text-8xl whitespace-nowrap">
                       Intelligence
