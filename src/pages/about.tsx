@@ -54,7 +54,7 @@ export function About() {
               Email:{" "}
               <a
                 href="mailto:moriya@suwako.me"
-                className="underline underline-offset-4"
+                className="underline underline-offset-4 transition-colors hover:text-muted hover:no-underline hover:bg-primary"
               >
                 moriya@suwako.me
               </a>
