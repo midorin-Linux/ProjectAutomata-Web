@@ -1,6 +1,8 @@
+import { useLanguage } from "@/components/language-provider"
 import midorinAvatar from "@/assets/midorin-avatar.png"
 
 export function About() {
+  const { t } = useLanguage()
   return (
     <div className="flex flex-col">
       <title>Project Automata | About</title>
@@ -14,9 +16,10 @@ export function About() {
               Intelligence With No Boundaries
             </h2>
             <p className="mt-8">
-              Project Automata is an integrated initiative dedicated to
-              advancing AI through research, development, and real-world
-              applications.
+              {t(
+                "Project Automata is an integrated initiative dedicated to advancing AI through research, development, and real-world applications.",
+                "Project Automata は、研究・開発・実社会への応用を通じて AI の進歩を目指す統合的な取り組みです。"
+              )}
             </p>
           </div>
           <div className="hidden min-w-0 border-l border-primary px-6 py-20 md:block"></div>
@@ -27,7 +30,7 @@ export function About() {
           <div className="min-w-0 bg-[#f5f2e9] px-4 py-6">
             <img
               src={midorinAvatar}
-              alt="midorin's avatar"
+              alt={t("midorin's avatar", "Midorin のアバター")}
               className="mx-auto h-auto w-full max-w-64 md:max-w-none"
             />
           </div>
@@ -40,20 +43,24 @@ export function About() {
               <MidorinSocialIcons />
             </div>
             <p className="mt-8">
-              Midorin is an independent developer primarily focused on
-              cybersecurity and machine learning (particularly language models
-              and classification models).
+              {t(
+                "Midorin is an independent developer primarily focused on cybersecurity and machine learning (particularly language models and classification models).",
+                "Midorin は、サイバーセキュリティと機械学習（特に言語モデルと分類モデル）を中心に活動する独立系開発者です。"
+              )}
               <br />
-              He primary programming languages are Rust and TypeScript, but He
-              also work with several other languages.
+              {t(
+                "He primary programming languages are Rust and TypeScript, but He also work with several other languages.",
+                "主に Rust と TypeScript を使用し、その他の言語でも開発しています。"
+              )}
             </p>
             <p className="mt-4">
-              Midorin is a proactive and collaborative leader, always seeking
-              opportunities to contribute to the advancement of AI. He is
-              committed to open-source contributions and continuous learning.
+              {t(
+                "Midorin is a proactive and collaborative leader, always seeking opportunities to contribute to the advancement of AI. He is committed to open-source contributions and continuous learning.",
+                "Midorin は、主体的に行動し、協力を大切にするリーダーとして、AI の発展に貢献する機会を常に探しています。オープンソースへの貢献と継続的な学習にも取り組んでいます。"
+              )}
             </p>
             <p className="mt-4">
-              Email:{" "}
+              {t("Email:", "メール：")}{" "}
               <a
                 href="mailto:moriya@suwako.me"
                 className="underline underline-offset-4 transition-colors hover:bg-primary hover:text-primary-foreground hover:no-underline focus-visible:bg-primary focus-visible:text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring motion-reduce:transition-none"
@@ -61,7 +68,7 @@ export function About() {
                 moriya@suwako.me
               </a>
               <br />
-              Personal Website:{" "}
+              {t("Personal Website:", "個人サイト：")}{" "}
               <a
                 href="https://www.wayokan.com/"
                 className="underline underline-offset-4 transition-colors hover:bg-primary hover:text-primary-foreground hover:no-underline focus-visible:bg-primary focus-visible:text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring motion-reduce:transition-none"

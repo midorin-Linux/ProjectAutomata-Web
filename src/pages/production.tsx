@@ -1,7 +1,9 @@
+import { useLanguage } from "@/components/language-provider"
 export function Production() {
+  const { t } = useLanguage()
   return (
     <div className="flex flex-col">
-      <title>Project Automata | Production</title>
+      <title>{`Project Automata | $Production`}</title>
       <div className="flex justify-center border-b border-primary px-3 sm:px-8">
         <div className="grid w-full max-w-7xl grid-cols-1 gap-6 border-x border-primary md:grid-cols-[3fr_2fr]">
           <div className="min-w-0 px-4 py-12 sm:px-6 md:py-20">
@@ -9,7 +11,10 @@ export function Production() {
               Production
             </h1>
             <p className="mt-8">
-              Explore the projects and applications of Project Automata.
+              {t(
+                "Explore the projects and applications of Project Automata.",
+                "Project Automata のプロジェクトとアプリケーションをご紹介します。"
+              )}
             </p>
           </div>
           <div className="hidden min-w-0 border-l border-primary px-6 py-20 md:block"></div>
@@ -33,7 +38,10 @@ export function Production() {
               Chandelier UI
             </h3>
             <p className="mt-4 text-muted-foreground">
-              This project is currently underway.
+              {t(
+                "This project is currently underway.",
+                "このプロジェクトは現在進行中です。"
+              )}
             </p>
           </div>
         </div>
@@ -52,7 +60,10 @@ export function Production() {
               Coming soon
             </h3>
             <p className="mt-4 text-muted-foreground">
-              Project details are being prepared for publication.
+              {t(
+                "Project details are being prepared for publication.",
+                "プロジェクトの詳細は公開に向けて準備中です。"
+              )}
             </p>
           </div>
         </div>

@@ -1,4 +1,6 @@
+import { useLanguage } from "@/components/language-provider"
 export function PlaceholderPage({ title }: { title: string }) {
+  const { t } = useLanguage()
   return (
     <div className="flex justify-center border-b border-primary px-3 sm:px-8">
       <title>{`Project Automata | ${title}`}</title>
@@ -10,7 +12,12 @@ export function PlaceholderPage({ title }: { title: string }) {
           <h2 className="mt-8 font-['Bitter',serif] text-2xl sm:text-3xl">
             Coming soon
           </h2>
-          <p className="mt-8">This page is currently being prepared.</p>
+          <p className="mt-8">
+            {t(
+              "This page is currently being prepared.",
+              "このページは現在準備中です。"
+            )}
+          </p>
         </div>
         <div className="hidden min-w-0 border-l border-primary px-6 py-20 md:block"></div>
       </div>
