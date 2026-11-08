@@ -5,7 +5,9 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu"
-import { Menu, X } from "lucide-react"
+import { useLanguage } from "@/components/language-provider"
+import { useTheme } from "@/components/theme-provider"
+import { Moon, Sun, Languages, Menu, X } from "lucide-react"
 import {
   AnimatePresence,
   domAnimation,
@@ -14,7 +16,7 @@ import {
 } from "motion/react"
 import * as m from "motion/react-m"
 import { Dialog } from "radix-ui"
-import { useState } from "react"
+import { useState, useSyncExternalStore } from "react"
 import { Link, NavLink, Outlet, useMatch } from "react-router"
 
 const navigationItems = [
@@ -26,6 +28,14 @@ const navigationItems = [
 ]
 
 export function App() {
+  const { t } = useLanguage()
+  const labels: Record<string, string> = {
+    About: "私たちについて",
+    News: "ニュース",
+    Research: "研究",
+    Production: "制作",
+    "Contact us": "お問い合わせ",
+  }
   const [menuOpen, setMenuOpen] = useState(false)
   const isAboutPage = useMatch("/about") !== null
   const shouldReduceMotion = useReducedMotion()
@@ -42,7 +52,7 @@ export function App() {
           >
             Project Automata
           </Link>
-          <div className="hidden lg:block">
+          <div className="hidden min-w-0 lg:flex lg:items-center lg:gap-2">
             <NavigationMenu className="max-w-full">
               <NavigationMenuList className="flex-wrap justify-start gap-x-2 gap-y-1">
                 {navigationItems.map(([to, label]) => (
@@ -52,13 +62,14 @@ export function App() {
                       className="relative min-h-11 justify-center whitespace-nowrap after:absolute after:top-full after:left-1/2 after:mt-1 after:hidden after:-translate-x-1/2 after:border-x-4 after:border-b-4 after:border-x-transparent after:border-b-primary hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground aria-[current=page]:bg-muted aria-[current=page]:after:block aria-[current=page]:hover:bg-primary aria-[current=page]:focus:bg-primary"
                     >
                       <NavLink to={to} end>
-                        {label}
+                        {t(label, labels[label])}
                       </NavLink>
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                 ))}
               </NavigationMenuList>
             </NavigationMenu>
+            <HeaderSettings />
           </div>
           <Dialog.Root open={menuOpen} onOpenChange={setMenuOpen}>
             <Dialog.Trigger asChild>
@@ -66,7 +77,7 @@ export function App() {
                 variant="outline"
                 size="icon"
                 className="min-h-11 min-w-11 border-primary lg:hidden"
-                aria-label="Open navigation menu"
+                aria-label={t("Open navigation menu", "メニューを開く")}
               >
                 <Menu className="size-5" aria-hidden="true" />
               </Button>
@@ -95,20 +106,28 @@ export function App() {
                         >
                           <div className="flex items-center justify-between gap-4">
                             <Dialog.Title className="font-['Bitter',serif] text-2xl">
-                              Menu
+                              {t("Menu", "メニュー")}
                             </Dialog.Title>
                             <Dialog.Close asChild>
                               <Button
                                 variant="ghost"
                                 size="icon"
                                 className="min-h-11 min-w-11"
-                                aria-label="Close navigation menu"
+                                aria-label={t(
+                                  "Close navigation menu",
+                                  "メニューを閉じる"
+                                )}
                               >
                                 <X className="size-5" aria-hidden="true" />
                               </Button>
                             </Dialog.Close>
                           </div>
-                          <nav aria-label="Main navigation">
+                          <nav
+                            aria-label={t(
+                              "Main navigation",
+                              "メインナビゲーション"
+                            )}
+                          >
                             <ul className="flex flex-col gap-2">
                               {navigationItems.map(([to, label]) => (
                                 <li key={to}>
@@ -118,13 +137,14 @@ export function App() {
                                       end
                                       className="flex min-h-11 items-center px-3 py-2 text-lg outline-none hover:bg-primary hover:text-primary-foreground focus-visible:bg-primary focus-visible:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring aria-[current=page]:bg-muted aria-[current=page]:hover:bg-primary aria-[current=page]:focus-visible:bg-primary"
                                     >
-                                      {label}
+                                      {t(label, labels[label])}
                                     </NavLink>
                                   </Dialog.Close>
                                 </li>
                               ))}
                             </ul>
                           </nav>
+                          <HeaderSettings />
                         </m.div>
                       </Dialog.Content>
                     </div>
@@ -177,3 +197,55 @@ export function App() {
 }
 
 export default App
+
+const colorScheme = "(prefers-color-scheme: dark)"
+function subscribeToColorScheme(callback: () => void) {
+  const media = window.matchMedia(colorScheme)
+  media.addEventListener("change", callback)
+  return () => media.removeEventListener("change", callback)
+}
+
+function HeaderSettings() {
+  const systemDark = useSyncExternalStore(
+    subscribeToColorScheme,
+    () => window.matchMedia(colorScheme).matches
+  )
+  const { theme, setTheme } = useTheme()
+  const { language, setLanguage, t } = useLanguage()
+  const isDark = theme === "dark" || (theme === "system" && systemDark)
+  const themeLabel = isDark
+    ? t("Switch to light mode", "ライトモードに切り替え")
+    : t("Switch to dark mode", "ダークモードに切り替え")
+  return (
+    <div className="flex shrink-0 items-center gap-2">
+      <Button
+        variant="outline"
+        size="icon"
+        className="min-h-11 min-w-11 border-primary"
+        aria-label={themeLabel}
+        title={themeLabel}
+        onClick={() =>
+          setTheme(
+            document.documentElement.classList.contains("dark")
+              ? "light"
+              : "dark"
+          )
+        }
+      >
+        <Sun className="hidden size-5 dark:block" aria-hidden="true" />
+        <Moon className="size-5 dark:hidden" aria-hidden="true" />
+      </Button>
+      <Button
+        variant="outline"
+        className="min-h-11 border-primary"
+        aria-label={t("Switch to Japanese", "Switch to English")}
+        onClick={() => setLanguage(language === "ja" ? "en" : "ja")}
+      >
+        <Languages className="size-5" aria-hidden="true" />
+        <span lang={language === "ja" ? "en" : "ja"}>
+          {language === "ja" ? "English" : "日本語"}
+        </span>
+      </Button>
+    </div>
+  )
+}

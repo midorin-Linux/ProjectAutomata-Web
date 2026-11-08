@@ -1,3 +1,4 @@
+import { LanguageProvider } from "@/components/language-provider"
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
 import { BrowserRouter, Route, Routes } from "react-router"
@@ -13,28 +14,30 @@ import { PlaceholderPage } from "@/pages/placeholder"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ErrorBoundary>
-      <ThemeProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route element={<App />}>
-              <Route index element={<Home />} />
-              <Route path="about" element={<About />} />
-              <Route path="news" element={<PlaceholderPage title="News" />} />
-              <Route
-                path="research"
-                element={<PlaceholderPage title="Research" />}
-              />
-              <Route path="production" element={<Production />} />
-              <Route
-                path="contact"
-                element={<PlaceholderPage title="Contact us" />}
-              />
-            </Route>
-            <Route path="*" element={<ErrorPage status={404} />} />
-          </Routes>
-        </BrowserRouter>
-      </ThemeProvider>
-    </ErrorBoundary>
+    <LanguageProvider>
+      <ErrorBoundary>
+        <ThemeProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route element={<App />}>
+                <Route index element={<Home />} />
+                <Route path="about" element={<About />} />
+                <Route path="news" element={<PlaceholderPage title="News" />} />
+                <Route
+                  path="research"
+                  element={<PlaceholderPage title="Research" />}
+                />
+                <Route path="production" element={<Production />} />
+                <Route
+                  path="contact"
+                  element={<PlaceholderPage title="Contact us" />}
+                />
+              </Route>
+              <Route path="*" element={<ErrorPage status={404} />} />
+            </Routes>
+          </BrowserRouter>
+        </ThemeProvider>
+      </ErrorBoundary>
+    </LanguageProvider>
   </StrictMode>
 )
