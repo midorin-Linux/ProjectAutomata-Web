@@ -3,12 +3,12 @@ export function Production() {
   const { t } = useLanguage()
   return (
     <div className="flex flex-col">
-      <title>{`Project Automata | ${t("Production", "制作")}`}</title>
+      <title>{`Project Automata | $Production`}</title>
       <div className="flex justify-center border-b border-primary px-3 sm:px-8">
         <div className="grid w-full max-w-7xl grid-cols-1 gap-6 border-x border-primary md:grid-cols-[3fr_2fr]">
           <div className="min-w-0 px-4 py-12 sm:px-6 md:py-20">
             <h1 className="font-['Bitter',serif] text-[clamp(2.5rem,7vw,6rem)] leading-none">
-              {t("Production", "制作")}
+              Production
             </h1>
             <p className="mt-8">
               {t(
@@ -30,7 +30,7 @@ export function Production() {
               id="projects-heading"
               className="font-['Bitter',serif] text-2xl"
             >
-              {t("Projects", "プロジェクト")}
+              Projects
             </h2>
           </div>
           <div className="min-w-0 border-t border-primary px-4 py-12 sm:px-6 md:border-t-0 md:border-l md:py-20">
@@ -52,12 +52,12 @@ export function Production() {
               id="projects-heading"
               className="font-['Bitter',serif] text-2xl"
             >
-              {t("Projects", "プロジェクト")}
+              Projects
             </h2>
           </div>
           <div className="min-w-0 border-t border-primary px-4 py-12 sm:px-6 md:border-t-0 md:border-l md:py-20">
             <h3 className="font-['Bitter',serif] text-2xl sm:text-3xl">
-              {t("Coming soon", "近日公開")}
+              Coming soon
             </h3>
             <p className="mt-4 text-muted-foreground">
               {t(

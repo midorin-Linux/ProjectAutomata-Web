@@ -29,13 +29,6 @@ const navigationItems = [
 
 export function App() {
   const { t } = useLanguage()
-  const labels: Record<string, string> = {
-    About: "私たちについて",
-    News: "ニュース",
-    Research: "研究",
-    Production: "制作",
-    "Contact us": "お問い合わせ",
-  }
   const [menuOpen, setMenuOpen] = useState(false)
   const isAboutPage = useMatch("/about") !== null
   const shouldReduceMotion = useReducedMotion()
@@ -62,7 +55,7 @@ export function App() {
                       className="relative min-h-11 justify-center whitespace-nowrap after:absolute after:top-full after:left-1/2 after:mt-1 after:hidden after:-translate-x-1/2 after:border-x-4 after:border-b-4 after:border-x-transparent after:border-b-primary hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground aria-[current=page]:bg-muted aria-[current=page]:after:block aria-[current=page]:hover:bg-primary aria-[current=page]:focus:bg-primary"
                     >
                       <NavLink to={to} end>
-                        {t(label, labels[label])}
+                        {label}
                       </NavLink>
                     </NavigationMenuLink>
                   </NavigationMenuItem>
@@ -137,7 +130,7 @@ export function App() {
                                       end
                                       className="flex min-h-11 items-center px-3 py-2 text-lg outline-none hover:bg-primary hover:text-primary-foreground focus-visible:bg-primary focus-visible:text-primary-foreground focus-visible:ring-2 focus-visible:ring-ring aria-[current=page]:bg-muted aria-[current=page]:hover:bg-primary aria-[current=page]:focus-visible:bg-primary"
                                     >
-                                      {t(label, labels[label])}
+                                      {label}
                                     </NavLink>
                                   </Dialog.Close>
                                 </li>

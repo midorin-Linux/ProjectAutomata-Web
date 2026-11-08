@@ -5,15 +5,15 @@ export function About() {
   const { t } = useLanguage()
   return (
     <div className="flex flex-col">
-      <title>{`Project Automata | ${t("About", "私たちについて")}`}</title>
+      <title>Project Automata | About</title>
       <div className="flex justify-center border-b border-primary px-3 sm:px-8">
         <div className="grid w-full max-w-7xl grid-cols-1 gap-6 border-x border-primary md:grid-cols-[3fr_2fr]">
           <div className="min-w-0 px-4 py-12 sm:px-6 md:py-20">
             <h1 className="font-['Bitter',serif] text-[clamp(2.5rem,7vw,6rem)] leading-none">
-              {t("About us", "私たちについて")}
+              About us
             </h1>
             <h2 className="mt-8 font-['Bitter',serif] text-2xl sm:text-3xl">
-              {t("Intelligence With No Boundaries", "知性に、境界はない")}
+              Intelligence With No Boundaries
             </h2>
             <p className="mt-8">
               {t(
@@ -38,9 +38,7 @@ export function About() {
             <div className="flex flex-col items-start gap-6 lg:mr-6 lg:flex-row lg:items-center lg:justify-between">
               <div>
                 <h2 className="font-['Bitter',serif] text-4xl">Midorin</h2>
-                <p className="mt-2 text-xl">
-                  {t("Project Leader & Others", "プロジェクトリーダーほか")}
-                </p>
+                <p className="mt-2 text-xl">Project Leader & Others</p>
               </div>
               <MidorinSocialIcons />
             </div>
