@@ -99,7 +99,7 @@ export function App() {
                         >
                           <div className="flex items-center justify-between gap-4">
                             <Dialog.Title className="font-['Bitter',serif] text-2xl">
-                              {t("Menu", "メニュー")}
+                              Menu
                             </Dialog.Title>
                             <Dialog.Close asChild>
                               <Button
