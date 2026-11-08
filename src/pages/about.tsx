@@ -45,18 +45,18 @@ export function About() {
             <p className="mt-8">
               {t(
                 "Midorin is an independent developer primarily focused on cybersecurity and machine learning (particularly language models and classification models).",
-                "Midorin は、サイバーセキュリティと機械学習（特に言語モデルと分類モデル）を中心に活動する独立系開発者です。"
+                "みどりんは、サイバーセキュリティと機械学習(特に言語モデルと分類モデル)を主な専門分野とする個人開発者です。"
               )}
               <br />
               {t(
-                "He primary programming languages are Rust and TypeScript, but He also work with several other languages.",
-                "主に Rust と TypeScript を使用し、その他の言語でも開発しています。"
+                "His primary programming languages are Rust and TypeScript, but He also works with several other languages.",
+                "主なプログラミング言語はRustとTypeScriptですが、そのほかにもいくつかの言語を扱います。"
               )}
             </p>
             <p className="mt-4">
               {t(
                 "Midorin is a proactive and collaborative leader, always seeking opportunities to contribute to the advancement of AI. He is committed to open-source contributions and continuous learning.",
-                "Midorin は、主体的に行動し、協力を大切にするリーダーとして、AI の発展に貢献する機会を常に探しています。オープンソースへの貢献と継続的な学習にも取り組んでいます。"
+                "みどりんは、主体的で協調性のあるリーダーであり、AIの発展に貢献する機会を常に探し求めています。オープンソースへの貢献と継続的な学習に力を注いでいます。"
               )}
             </p>
             <p className="mt-4">
