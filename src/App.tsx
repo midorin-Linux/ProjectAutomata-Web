@@ -37,7 +37,7 @@ export function App() {
 
   return (
     <div className="flex min-h-svh w-full flex-col">
-      <header className="flex shrink-0 justify-center border-b border-primary px-3 sm:px-8">
+      <header className="sticky top-0 z-40 flex shrink-0 justify-center border-b border-primary bg-background px-3 sm:px-8">
         <div className="flex w-full max-w-7xl items-center justify-between gap-4 border-x border-primary px-4 py-4 sm:px-8">
           <Link
             className="font-['Bitter',serif] text-2xl whitespace-nowrap"
