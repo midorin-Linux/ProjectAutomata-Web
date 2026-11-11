@@ -22,7 +22,7 @@ export function Home() {
           <h2 className="mt-8">
             {t(
               "Salvation for Those Devoid of Intelligence.",
-              "知性無き者への救済を"
+              "知性無き者への救済を。"
             )}
           </h2>
           <Button asChild className="mt-6 px-4 py-8 text-xl">
