@@ -13,7 +13,7 @@ export function About() {
               About us
             </h1>
             <h2 className="mt-8 font-['Bitter',serif] text-2xl sm:text-3xl">
-              Intelligence With No Boundaries
+              An Intelligence With No Boundaries
             </h2>
             <p className="mt-8">
               {t(

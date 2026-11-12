@@ -2,7 +2,7 @@
 
 [日本語](README_ja.md)
 
-## Intelligence With No Boundaries
+## An Intelligence With No Boundaries
 
 > Salvation for Those Devoid of Intelligence.
 
