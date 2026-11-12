@@ -4,7 +4,7 @@
 
 ## An Intelligence With No Boundaries
 
-> 知性無き者への救済を。
+> Project Automata は、研究・開発・実社会への応用を通じて AI の進歩を目指す統合的な取り組みです。
 
 Project Automata は、個人開発者の Midorin（みどりん）が率いる取り組みです。Midorin はサイバーセキュリティと機械学習、特に言語モデルと分類モデルを主な専門分野とし、AI の発展、オープンソースへの貢献、継続的な学習に取り組んでいます。
 
