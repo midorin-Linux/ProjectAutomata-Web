@@ -2,7 +2,7 @@
 
 [English](README.md)
 
-## Intelligence With No Boundaries
+## An Intelligence With No Boundaries
 
 > 知性無き者への救済を。
 
