@@ -4,7 +4,7 @@
 
 ## An Intelligence With No Boundaries
 
-> roject Automata is an integrated initiative dedicated to advancing AI through research, development, and real-world applications.
+> Project Automata is an integrated initiative dedicated to advancing AI through research, development, and real-world applications.
 
 Project Automata is an initiative led by Midorin, an independent developer whose primary interests are cybersecurity and machine learning, particularly language models and classification models. Its work is guided by a commitment to advancing AI, contributing to open source, and continuous learning.
 
