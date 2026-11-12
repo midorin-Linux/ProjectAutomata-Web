@@ -21,8 +21,8 @@ export function Home() {
           </h1>
           <h2 className="mt-8">
             {t(
-              "Salvation for Those Devoid of Intelligence.",
-              "知性無き者への救済を。"
+              "Project Automata is an integrated initiative dedicated to advancing AI through research, development, and real-world applications.",
+              "Project Automata は、研究・開発・実社会への応用を通じて AI の進歩を目指す統合的な取り組みです。"
             )}
           </h2>
           <Button asChild className="mt-6 px-4 py-8 text-xl">
