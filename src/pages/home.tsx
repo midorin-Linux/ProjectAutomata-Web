@@ -11,11 +11,11 @@ export function Home() {
       <div className="grid w-full max-w-7xl grid-cols-1 gap-6 border-x border-primary md:grid-cols-[3fr_2fr]">
         <div className="min-w-0 px-4 py-12 sm:px-6 md:py-20">
           <h1 className="font-['Bitter',serif]">
-            <span className="text-[clamp(1.75rem,6vw,6rem)] leading-none whitespace-nowrap">
+            <span className="text-[max(1.875rem,12vw)] leading-none whitespace-nowrap md:text-[clamp(1.75rem,6vw,6rem)]">
               An Intelligence
             </span>
             <br />
-            <span className="text-[clamp(1.25rem,3.5vw,3rem)] leading-none whitespace-nowrap">
+            <span className="text-[max(1.375rem,7.5vw)] leading-none whitespace-nowrap md:text-[clamp(1.25rem,3.5vw,3rem)]">
               With No Boundaries
             </span>
           </h1>
