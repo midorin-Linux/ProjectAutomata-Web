@@ -17,8 +17,8 @@ export function About() {
             </h2>
             <p className="mt-8">
               {t(
-                "Salvation for Those Devoid of Intelligence.",
-                "知性無き者への救済を。"
+                "Project Automata is an integrated initiative dedicated to advancing AI through research, development, and real-world applications.",
+                "Project Automata は、研究・開発・実社会への応用を通じて AI の進歩を目指す統合的な取り組みです。"
               )}
             </p>
           </div>
