@@ -21,7 +21,7 @@ export function Production() {
     <div className="flex flex-col">
       <title>Project Automata | Production</title>
       <div className="flex justify-center border-b border-primary px-3 sm:px-8">
-        <div className="grid w-full max-w-7xl grid-cols-1 gap-6 border-x border-primary md:grid-cols-[3fr_2fr]">
+        <div className="grid w-full max-w-7xl grid-cols-1 border-x border-primary md:grid-cols-[3fr_2fr]">
           <div className="min-w-0 px-4 py-12 sm:px-6 md:py-20">
             <h1 className="font-['Bitter',serif] text-[clamp(2.5rem,7vw,6rem)] leading-none">
               Production

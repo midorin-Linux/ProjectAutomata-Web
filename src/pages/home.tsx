@@ -8,7 +8,7 @@ export function Home() {
   return (
     <div className="flex justify-center border-b border-primary px-3 sm:px-8">
       <title>Project Automata | Home</title>
-      <div className="grid w-full max-w-7xl grid-cols-1 gap-6 border-x border-primary md:grid-cols-[3fr_2fr]">
+      <div className="grid w-full max-w-7xl grid-cols-1 border-x border-primary md:grid-cols-[3fr_2fr]">
         <div className="min-w-0 px-4 py-12 sm:px-6 md:py-20">
           <h1 className="font-['Bitter',serif]">
             <span className="text-[max(1.875rem,12vw)] leading-none whitespace-nowrap md:text-[clamp(1.75rem,6vw,6rem)]">
