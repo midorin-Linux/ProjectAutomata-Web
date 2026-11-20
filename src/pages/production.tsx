@@ -4,10 +4,11 @@ import { useLanguage } from "@/components/language-provider"
 const featuredProduction = {
   name: "Chandelier UI",
   description: {
-    en: "A desktop application for interacting with language models through OpenAI-compatible APIs.",
-    ja: "OpenAI互換APIを通じて言語モデルと対話するためのデスクトップアプリケーション。",
+    en: "Chandelier UI is a self-built desktop AI chat app made with Tauri 2.0, Rust, and React/TypeScript, using an integrated architecture.",
+    ja: "Chandelier UI は、Tauri 2.0・Rust・React/TypeScript で開発した、統合アーキテクチャを採用する自作のデスクトップ AI チャットアプリです。",
   },
   technologies: ["Tauri 2.0", "Rust", "React", "TypeScript"],
+  kind: { en: "Desktop application", ja: "デスクトップアプリ" },
   // No local detail route exists; use the public project linked in the README.
   href: "https://github.com/midorin-Linux/ChandelierUI",
 }
@@ -20,7 +21,7 @@ export function Production() {
     <div className="flex flex-col">
       <title>Project Automata | Production</title>
       <div className="flex justify-center border-b border-primary px-3 sm:px-8">
-        <div className="grid w-full max-w-7xl grid-cols-1 gap-6 border-x border-primary md:grid-cols-[3fr_2fr]">
+        <div className="grid w-full max-w-7xl grid-cols-1 border-x border-primary md:grid-cols-[3fr_2fr]">
           <div className="min-w-0 px-4 py-12 sm:px-6 md:py-20">
             <h1 className="font-['Bitter',serif] text-[clamp(2.5rem,7vw,6rem)] leading-none">
               Production
@@ -59,22 +60,9 @@ function FeaturedProduction({ project }: { project: ProductionProject }) {
           >
             {project.name}
           </h2>
-          <p className="mt-4 text-sm text-primary">
-            {t("In Development", "開発中")}
-          </p>
           <p className="mt-6 max-w-lg text-base leading-relaxed sm:text-lg">
             {t(project.description.en, project.description.ja)}
           </p>
-          <ul
-            aria-label={t("Technologies", "技術スタック")}
-            className="mt-8 flex flex-wrap gap-x-5 gap-y-3 text-xs text-muted-foreground"
-          >
-            {project.technologies.map((technology) => (
-              <li key={technology} className="border-t border-primary pt-2">
-                {technology}
-              </li>
-            ))}
-          </ul>
           <a
             href={project.href}
             className="group mt-10 inline-flex min-h-11 items-center gap-3 text-primary underline underline-offset-4 transition-colors hover:bg-primary hover:text-primary-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:transition-none"
@@ -89,65 +77,75 @@ function FeaturedProduction({ project }: { project: ProductionProject }) {
             <span className="sr-only">{t(" on GitHub", "（GitHub）")}</span>
           </a>
         </div>
-        <div className="flex min-w-0 items-center border-t border-primary px-4 py-8 sm:px-6 md:border-t-0 md:border-l md:py-16 lg:py-20">
-          <ProductionPreview name={project.name} />
+        <div className="flex min-w-0 flex-col border-t border-primary md:border-t-0 md:border-l">
+          <ProductionSpecs project={project} />
         </div>
       </div>
     </section>
   )
 }
 
-function ProductionPreview({ name }: { name: string }) {
+function ProductionSpecs({ project }: { project: ProductionProject }) {
   const { t } = useLanguage()
+  const rows: [string, React.ReactNode][] = [
+    [
+      "Status",
+      <span className="inline-flex items-center gap-2">
+        <span
+          aria-hidden="true"
+          className="size-2 animate-pulse rounded-full bg-primary motion-reduce:animate-none"
+        />
+        {t("In Development", "開発中")}
+      </span>,
+    ],
+    ["Type", t(project.kind.en, project.kind.ja)],
+    ["Stack", project.technologies.join(" / ")],
+  ]
   return (
-    <figure className="w-full min-w-0">
-      {/* An explicit placeholder, rather than a fabricated application screenshot. */}
-      <div className="flex aspect-[16/10] w-full items-center justify-center border border-primary bg-muted p-4 text-center sm:p-6">
-        <div>
-          <p className="font-['Bitter',serif] text-xl text-foreground sm:text-2xl">
-            {name}
-          </p>
-          <p className="mt-4 text-sm text-foreground">
-            {t("Preview in preparation", "プレビューを準備中")}
-          </p>
+    <dl className="flex flex-1 flex-col text-sm">
+      {rows.map(([label, value]) => (
+        <div
+          key={label}
+          className="grid flex-1 grid-cols-[6rem_1fr] border-b border-primary last:border-b-0"
+        >
+          <dt className="flex items-center border-r border-primary px-4 py-3 text-xs tracking-widest text-primary uppercase sm:px-6">
+            {label}
+          </dt>
+          <dd className="flex min-w-0 items-center px-4 py-3 sm:px-6">
+            {value}
+          </dd>
         </div>
-      </div>
-      <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
-        {t(
-          "An application preview will be shared here when available.",
-          "アプリケーションのプレビューは準備が整い次第公開します。"
-        )}
-      </figcaption>
-    </figure>
+      ))}
+    </dl>
   )
 }
 
 function UpcomingProduction() {
-  const { t } = useLanguage()
+  // const { t } = useLanguage()
   return (
     <section
       aria-labelledby="upcoming-production-heading"
       className="flex justify-center border-b border-primary px-3 sm:px-8"
     >
-      <div className="grid w-full max-w-7xl grid-cols-1 border-x border-primary md:grid-cols-[1fr_3fr]">
-        <p className="min-w-0 px-4 py-6 text-xs tracking-widest text-primary sm:px-6">
-          {t("02 / UPCOMING", "02 / 公開予定")}
-        </p>
-        <div className="min-w-0 border-t border-primary px-4 py-8 sm:px-6 md:border-t-0 md:border-l md:py-10">
-          <h2
-            id="upcoming-production-heading"
-            className="font-['Bitter',serif] text-2xl sm:text-3xl"
-          >
-            {t("Coming soon", "近日公開")}
-          </h2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">
-            {t(
-              "Project details are being prepared for publication.",
-              "プロジェクトの詳細は公開に向けて準備中です。"
-            )}
-          </p>
-        </div>
-      </div>
+      {/*<div className="grid w-full max-w-7xl grid-cols-1 border-x border-primary md:grid-cols-[1fr_3fr]">*/}
+      {/*  <p className="min-w-0 px-4 py-6 text-xs tracking-widest text-primary sm:px-6">*/}
+      {/*    {t("02 / UPCOMING", "02 / 公開予定")}*/}
+      {/*  </p>*/}
+      {/*  <div className="min-w-0 border-t border-primary px-4 py-8 sm:px-6 md:border-t-0 md:border-l md:py-10">*/}
+      {/*    <h2*/}
+      {/*      id="upcoming-production-heading"*/}
+      {/*      className="font-['Bitter',serif] text-2xl sm:text-3xl"*/}
+      {/*    >*/}
+      {/*      {t("Coming soon", "近日公開")}*/}
+      {/*    </h2>*/}
+      {/*    <p className="mt-4 leading-relaxed text-muted-foreground">*/}
+      {/*      {t(*/}
+      {/*        "Project details are being prepared for publication.",*/}
+      {/*        "プロジェクトの詳細は公開に向けて準備中です。"*/}
+      {/*      )}*/}
+      {/*    </p>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
     </section>
   )
 }
